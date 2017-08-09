@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01正则去除空格</title>
+</head>
+<body>
+<h2>测试去除字符串左右两侧的空格</h2>
+<input type="text" id="strs" value="          需要过滤空格 ">
+<input type="button" id="reset" value="过滤空格">
+<script>
+    var strs = document.getElementById("strs");  //获取需要过滤的元素
+    var btn = document.getElementById("reset");  //获取按键
+    btn.onclick=function () {   //javascript原生点击事件
+        strs.value = strs.value.replace( /^(\s|\u00A0)+|(\s|\u00A0)+$/g, "" );  //点击之后进行处理
+    };
+</script>
+</body>
+</html>
