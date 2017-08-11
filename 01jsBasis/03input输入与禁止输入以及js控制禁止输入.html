@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03input输入与禁止输入以及js控制禁止输入</title>
+</head>
+<body>
+<h2>input输入与禁止输入</h2>
+<div>javascript控制禁止输入<input type="text" id="inputWord" value="不可以输入"></div><br />
+<div>1.可以输入<input type="text" value="可以输入"></div><br/>
+<div>2.readonly不可以输入<input type="text" value="不可以输入" readonly></div><br />
+<div>3.disabled不可以输入<input type="text" value="不可以输入" disabled></div><br/>
+<div>4.disabled="disabled"不可以输入<input type="text" value="不可以输入" disabled="disabled"></div>
+</body>
+<script>
+    var enterWord = document.getElementById("inputWord");
+    enterWord.onfocus=function () {//input获取焦点时，失去焦点
+        enterWord.blur();
+    }
+</script>
+</html>

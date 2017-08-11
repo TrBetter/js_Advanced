@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04js清除中文输入只保留英文输入</title>
+</head>
+<body>
+<h2>js清除中文输入只保留英文输入</h2>
+<div><input type="text" value="不支持谷歌浏览器" id="text1"></div><br/>
+<div><input type="text" openMode="1" value="支持主流浏览器" id="text2"></div>
+</body>
+<script>
+    var arr = [document.getElementById("text1"), document.getElementById("text2")];
+    var arrLen = arr.length;
+    for(var i=0;i<arrLen;i++){
+        var flagArr=arr[i];
+//        js实现焦点进入文本框内关闭输入法:imeMode
+//        要用到的东西: imeMode:xxx
+//        有四个参数
+//        active 代表输入法为中文
+//        inactive 代表输入法为英文
+//        auto 代表打开输入法 (默认)
+//        disable 代表关闭输入法
+        flagArr.onfocus=function () {
+            this.style.imeMode="disable";//关闭输入法
+        };
+        var openMode=flagArr.getAttribute("openMode");//获取第二个输入框
+        if(openMode){
+            var clearChinese = function(_this){//用空字符替换中文输入
+                var _v = _this.value;
+                _this.value = _v.replace(/[\u4e00-\u9fa5]/g,"");	//正则替换中文字符
+            };
+            flagArr.onkeyup = function(){						//keyup事件
+                clearChinese(this);
+            }
+            flagArr.onblur = function(){						//blur事件
+                clearChinese(this);
+            }
+        }
+    }
+</script>
+</html>
