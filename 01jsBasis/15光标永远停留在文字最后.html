@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>15光标永远停留在文字最后</title>
+</head>
+<body>
+<!--setSelectionRange()函数-->
+<h2>15光标永远停留在文字最后</h2>
+<input type="text" id="cursorPos" value="光标永远停留在文字最后">
+<script type="text/javascript">
+    window.onload = function(){
+        var cursorPos = document.getElementById("cursorPos");//绑定两种事件，已达到最大兼容性
+        cursorPos.onclick = cursorPos.onkeyup  = function(){//绑定处理事件的函数
+            var _vLen = this.value.length;
+            if(this.setSelectionRange){//非IE
+                this.setSelectionRange(_vLen,_vLen);
+            }else{//IE中
+                var a =this.createTextRange();
+                a.moveStart('character',_vLen);
+//                collapse()方法把文本范围从当前尺寸重叠成字符间的单个插入点。
+// collapse()方法的可选参数是Boolean值,它指出范围是在当前范围的开始点重合，还是结束点重合。
+// 默认值为true，在开始点重合。
+                a.collapse(true);
+                a.select();
+            }
+        }
+    };
+</script>
+</body>
+</html>

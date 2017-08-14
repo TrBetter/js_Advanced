@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07限制只能输入中文</title>
+</head>
+<body>
+<h2>07限制只能输入中文</h2>
+<input type="text" value="限制只能输入中文" id="cnTest">
+<script>
+    var cnFlag = document.getElementById("cnTest");
+    var clearNumber = function(flag){//过滤字符
+        var content = flag.value;
+        flag.value = content.replace(/[^\u4e00-\u9fa5]/g,"");	//正则替换
+    };
+    cnFlag.onfocus=function () {
+        clearNumber(this);
+    };
+    cnFlag.onkeyup=function () {
+        clearNumber(this);
+    };
+    cnFlag.onblur=function () {
+        clearNumber(this);
+    }
+</script>
+</body>
+</html>

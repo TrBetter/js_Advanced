@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>14回车提交</title>
+</head>
+<body>
+<!--回车键的键值为keycode：13-->
+<h2>14回车提交</h2>
+<input type="text" id="enterSubmit" value="回车提交">
+<script type="text/javascript">
+    window.onload = function(){
+        document.getElementById("enterSubmit").onkeyup = function(e){
+            e = e || window.event;
+            var keycode = e.keyCode || e.which ||e.charCode;
+            if(keycode === 13){
+                alert("回车提交成功");
+            }
+        }
+    };
+</script>
+</body>
+</html>

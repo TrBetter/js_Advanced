@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06限制只能输入数字</title>
+</head>
+<body>
+<h2>06限制只能输入数字</h2>
+<form>
+    <input type="number" placeholder="html5只能输入数字"><br/><br/>
+    <input type="text" placeholder="html5只能输入数字" pattern=[0-9] /><br /><br/>
+    <input type="text" name="number" placeholder="只能输入数字" id="numText"><br /><br/>
+    <input type="submit" value="提交">
+</form>
+<script>
+    var numFlag = document.getElementById("numText");
+    clearNumber = function(num){//过滤数字
+        var val = num.value;
+        num.value = val.replace(/\D/g,"");
+    };
+    numFlag.onfocus = function(){//绑定获取焦点事件
+        clearNumber(this);
+    };
+    numFlag.onkeyup = function(){//绑定键盘事件
+        clearNumber(this);
+    };
+    numFlag.onblur = function(){//失去焦点事件
+        clearNumber(this);
+    };
+</script>
+</body>
+</html>

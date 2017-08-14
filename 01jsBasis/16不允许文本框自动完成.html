@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>16不允许文本框自动完成</title>
+</head>
+<body>
+<h2>不允许文本框自动完成</h2>
+<form action="">
+    <input type="text" id="banAutocomplete" value="禁止自动完成">
+    <input type="text" id="banAutocomplete2"/>
+</form>
+<script type="text/javascript">
+    window.onload = function(){
+        document.getElementById("banAutocomplete").setAttribute("autocomplete", "off");//设置属性
+    };
+</script>
+</body>
+</html>

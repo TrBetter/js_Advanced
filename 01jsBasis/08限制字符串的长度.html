@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08限制字符串的长度</title>
+</head>
+<body>
+<h2>限制字符串的长度</h2>
+stringObject.substr(start,length);<br/>
+substr()方法可在字符串中抽取从 start 下标开始的指定数目的字符<br/>
+<br/>
+通过“maxlength ”限制：<input type="text" name="lname" maxlength="5" /><br />
+通过“JavaScript事件 ”限制：<input type="text" data-length='5' id='limitLength' data-model='Ch' name="lname"/><br />
+<script>
+    var limitLength = document.getElementById("limitLength"),//获取限制对象
+        clearNonumber = function(flag){//清除数字
+            var content = flag.value,
+                vLen = content.length,
+                dataLength = flag.getAttribute("data-length"),//获取长度属性
+                subLen = dataLength;
+//            stringObject.substr(start,length);     substr()方法可在字符串中抽取从 start 下标开始的指定数目的字符
+            if(vLen > dataLength)  flag.value = content.substr(0, subLen);//判断长度
+        };
+    limitLength.onfocus = function(){//获取焦点事件
+        clearNonumber(this);
+    };
+    limitLength.onkeyup = function(){//键盘事件
+        clearNonumber(this);
+    };
+    limitLength.onblur = function(){//失去焦点事件
+        clearNonumber(this);
+    };
+</script>
+</body>
+</html>
